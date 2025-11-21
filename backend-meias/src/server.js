@@ -138,12 +138,22 @@ app.put('/materiais/:id', async (req, res) => {
 });
 
 // deletar material
+// Antes de deletar o material, deleta as movimentações
 app.delete('/materiais/:id', async (req, res) => {
+  const { id } = req.params;
+
   try {
-    const r = await pool.query('DELETE FROM materiais WHERE id=$1 RETURNING id', [req.params.id]);
-    if (!r.rows.length) return fail(res, 'Material não encontrado', 404);
-    ok(res, { message: 'Material excluído' });
-  } catch (e) { fail(res, e); }
+    // Primeiro deleta as movimentações do material
+    await pool.query('DELETE FROM movimentacoes WHERE material_id = $1', [id]);
+
+    // Depois deleta o material
+    await pool.query('DELETE FROM materiais WHERE id = $1', [id]);
+
+    res.json({ message: 'Material excluído com sucesso' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro ao excluir material' });
+  }
 });
 
 // -----------------------------
