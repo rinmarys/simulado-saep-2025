@@ -1,0 +1,236 @@
+/* Container Principal */
+.login-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Painel Lateral Esquerdo */
+.login-sidebar {
+  flex: 0 0 40%;
+  background: linear-gradient(135deg, #5cb3a0 0%, #4a9b8a 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 40px;
+  color: white;
+  position: relative;
+}
+
+.sidebar-content {
+  max-width: 400px;
+  text-align: center;
+}
+
+.logo-icon {
+  font-size: 80px;
+  margin-bottom: 30px;
+}
+
+.sidebar-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.sidebar-description {
+  font-size: 16px;
+  opacity: 0.95;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.sidebar-footer {
+  position: absolute;
+  bottom: 30px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* Painel Direito - Formulário */
+.login-form-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: #ffffff;
+}
+
+.login-form-container {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Cabeçalho do Formulário */
+.form-header {
+  margin-bottom: 40px;
+}
+
+.form-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 8px 0;
+}
+
+.form-subtitle {
+  font-size: 14px;
+  color: #718096;
+  margin: 0;
+}
+
+/* Mensagem de Erro */
+.error-message {
+  background: #fff5f5;
+  border: 1px solid #fc8181;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: #c53030;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: shake 0.4s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+/* Campos do Formulário */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2d3748;
+  margin-bottom: 8px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #2d3748;
+  transition: all 0.3s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  border-color: #5cb3a0;
+  box-shadow: 0 0 0 3px rgba(92, 179, 160, 0.1);
+}
+
+.form-input:disabled {
+  background: #f7fafc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-input::placeholder {
+  color: #a0aec0;
+}
+
+/* Botão de Login */
+.login-button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #5cb3a0 0%, #4a9b8a 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(92, 179, 160, 0.3);
+  margin-top: 10px;
+}
+
+.login-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(92, 179, 160, 0.4);
+}
+
+.login-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.login-button:disabled {
+  background: #cbd5e0;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.login-button.loading {
+  opacity: 0.7;
+}
+
+/* Credenciais de Teste */
+.test-credentials {
+  margin-top: 30px;
+  padding: 16px;
+  background: #f7fafc;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #718096;
+  border: 1px solid #e2e8f0;
+}
+
+.test-credentials-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #2d3748;
+}
+
+.test-credentials-info {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* Responsividade */
+@media (max-width: 968px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-sidebar {
+    flex: 0 0 auto;
+    min-height: 300px;
+    padding: 40px 20px;
+  }
+
+  .logo-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+  }
+
+  .sidebar-title {
+    font-size: 28px;
+  }
+
+  .sidebar-description {
+    font-size: 14px;
+  }
+
+  .login-form-panel {
+    padding: 30px 20px;
+  }
+
+  .form-title {
+    font-size: 24px;
+  }
+}
